@@ -1,0 +1,15 @@
+INIT:
+(python)repoAccount--yes-->askUpload--yes-->Login--done-->confSystem
+(python)repoAccount--no-->confSystem
+(python,ansible)confSystem--->checkDocker--yes(1)--no(2)-->INIT(done),confPackageManager-->installDocker-->INIT(done)
+(python)showHelp-->INIT(exit)
+TOOL:
+(Dockerfile/ansible,linguist)
+imgmaker --file(*required) <githubUrl>
+         --exec <mainFileToExec>
+         --name(*required) <imageName>
+FUTURE SCOPE:
+	--bimg(default: centos) <imageName:version>
+	
+
+    
